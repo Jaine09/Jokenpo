@@ -1,30 +1,50 @@
-function jogar(){
-    var idade = prompt("Qual a sua idade?");
-    
-    if(idade < 18){
-      alert("Infelizmente você não pode jogar")
-      return;
-    } else {
-      alert("Bem-vind@ ao jogo")
-    }
-    
-    var nomeJogador = prompt("Digite seu nome:")
-    var escolhaJogador = prompt("Qual a sua escolha\n 1-Pedra\n 2-Papel\n 3-Tesoura");
-    var escolhaComputador = Math.floor(Math.random() * 3) + 1;
+var botaoJogar = document.getElementById('boraJogar');
+var jogo = document.getElementById('jogo');
 
-    if(escolhaJogador == escolhaComputador){
-        alert("Empate");
-    } else if (escolhaComputador == 1 && escolhaJogador == 2){
-        alert(`Sua escolha foi Papel\n${nomeJogador} GANHOU, computador escolheu Pedra`);
-    } else if (escolhaComputador == 1 && escolhaJogador == 3){
-        alert(`Sua escolha foi Tesoura\n${nomeJogador} PERDEU, computador escolheu Pedra`);
-    } else if (escolhaComputador == 2 && escolhaJogador == 1){
-        alert(`Sua escolha foi Pedra\n${nomeJogador} PERDEU, computador escolheu Papel`);
-    }else if (escolhaComputador == 2 && escolhaJogador == 3){
-        alert(`Sua escolha foi Tesoura\n${nomeJogador} GANHOU, computador escolheu Papel`);
-    } else if(escolhaComputador == 3 && escolhaJogador == 1){
-        alert(`Sua escolha foi Pedra\n${nomeJogador} GANHOU, computador escolheu Tesoura`);
-    } else {
-        alert(`Sua escolha foi Papel\n${nomeJogador} PERDEU, computador escolheu Tesoura`);
+botaoJogar.addEventListener('click', function(){
+    botaoJogar.style.display = 'none';
+    jogo.style.display = 'flex';
+})
+
+
+var pedra = document.getElementById('pedra');
+var papel = document.getElementById('papel');
+var tesoura = document.getElementById('tesoura');
+var resultadoElemento = document.getElementById('resultado'); 
+
+var escolhaJogador = "";
+
+papel.closest('button').addEventListener('click', function() {
+    jogar("papel");
+});
+
+pedra.closest('button').addEventListener('click', function() {
+    jogar("pedra");
+});
+
+tesoura.closest('button').addEventListener('click', function() {
+    jogar("tesoura");
+});
+
+function jogar(escolhaJogador) {
+
+    const escolhas = ["pedra", "papel", "tesoura"];
+    const escolhaComputador = escolhas[Math.floor(Math.random() * escolhas.length)]; 
+    let resultadoTexto = "";
+
+    if(escolhaJogador === escolhaComputador){
+        resultadoTexto = "Empate";
+    }else{
+        if(escolhaJogador == "pedra" && escolhaComputador == "tesoura" ||
+            escolhaJogador == "papel" && escolhaComputador == "pedra" ||
+            escolhaJogador == "tesoura" && escolhaComputador == "papel"
+        ) {
+            resultadoTexto = "Parabéns, você ganhou!!";
+        } else{
+            resultadoTexto = "Você perdeu!!";
+            
+        }
     }
-  }
+
+    resultadoElemento.textContent = resultadoTexto; 
+};

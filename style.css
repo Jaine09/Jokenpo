@@ -19,7 +19,7 @@ body {
   
   /* Container with the background image */
   .container {
-    background: url('https://i.postimg.cc/TY28jTqJ/bg4-ia.jpg') no-repeat center center/cover;
+    background: url(./img/fundo-jokenpo.png) no-repeat center center/cover;
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -28,6 +28,7 @@ body {
   
   /* Content div for text and button */
   .content {
+    width: 600px;
     text-align: center;
     background-color: rgba(0, 0, 0, 0.5);
     padding: 20px 40px;
@@ -37,9 +38,41 @@ body {
   .content h2 {
     margin-bottom: 20px;
   }
+
+  .escolhas{
+    display: none;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .escolhas #resultado{
+    color: white;
+    font-size: 60px;
+  }
+  
+  .opcaoJogo{
+    margin: 10px;
+  }
+
+  .opcaoJogo button{
+    padding-top: 5px;
+    cursor: pointer;
+    background-color: #FFFFFF;
+    border: 2px solid black;
+  }
+
+  .opcaoJogo button:active{
+    transform: scale(0.9);
+  }
+
+  .opcaoJogo img{
+    width: 100px;
+    height: 100px;
+  }
+
   
   /* Button Styles */
-  button {
+  #boraJogar {
     background-color: #ff1b7b;
     border: none;
     padding: 10px 20px;
@@ -47,9 +80,14 @@ body {
     color: white;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    border-radius: 5px;
+  }
+
+  #boraJogar:active{
+    transform: scale(0.9);
   }
   
-  button:hover {
+  #boraJogar:hover {
     background-color: #1ABC9C;
   }
   
