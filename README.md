@@ -17,7 +17,7 @@ O jogo Jokenpo permite que o usuário jogue contra o computador. O usuário esco
 * **Escolha do Computador:** O computador escolhe aleatoriamente entre as opções.
 * **Determinação do Vencedor:** Lógica para determinar o vencedor da rodada.
 
-* **Mensagens Informativas:** Exibe mensagens claras sobre as escolhas e o resultado de cada rodada.
+* **Mensagens Informativas:** Exibe mensagens claras sobre o resultado de cada rodada.
 
 ## Tecnologias Utilizadas
 
